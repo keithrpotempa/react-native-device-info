@@ -196,7 +196,7 @@ The example app in this repository shows an example usage of every single API, c
 | [isPinOrFingerprintSet()](#ispinorfingerprintset)                 | `Promise<boolean>`  |  ✅  |   ✅    |   ✅    | ❌  |
 | [isTablet()](#istablet)                                           | `boolean`           |  ✅  |   ✅    |   ✅    | ❌  |
 | [isLowRamDevice()](#istablet)                                     | `boolean`           |  ❌  |   ✅    |   ❌    | ❌  |
-| [isDisplayZoomed()](#isdisplayzoomed)                             | `boolean`           |  ✅  |   ❌    |   ❌    | ❌  |
+| [isDisplayZoomed()](#isdisplayzoomed)                             | `boolean`           |  ✅  |   ✅    |   ❌    | ❌  |
 | [isTabletMode()](#istabletmode)                                   | `Promise<bool>`     |  ❌  |   ❌    |   ✅    | ❌  |
 | [supported32BitAbis()](#supported32BitAbis)                       | `Promise<string[]>` |  ❌  |   ✅    |   ❌    | ❌  |
 | [supported64BitAbis()](#supported64BitAbis)                       | `Promise<string[]>` |  ❌  |   ✅    |   ❌    | ❌  |

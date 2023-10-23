@@ -23,6 +23,7 @@ import android.os.BatteryManager;
 import android.os.Debug;
 import android.os.Process;
 import android.provider.Settings;
+import android.util.DisplayMetrics;
 import android.webkit.WebSettings;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
@@ -179,6 +180,17 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
   }
 
   @Nonnull
+  private Boolean isDisplayZoomed() {
+    // Current pixel density
+    int densityDpi = getReactApplicationContext().getResources().getDisplayMetrics().densityDpi;
+    // Device's default density
+    int densityDeviceStable = DisplayMetrics.DENSITY_DEVICE_STABLE;
+
+    // If the current density is not the same as the device default, then display is zoomed
+    return densityDpi != densityDeviceStable;
+  }
+
+  @Nonnull
   private Boolean isLowRamDevice() {
     ActivityManager am = (ActivityManager) getReactApplicationContext().getSystemService(ACTIVITY_SERVICE);
     boolean isLowRamDevice = false;
@@ -210,6 +222,7 @@ public class RNDeviceModule extends ReactContextBaseJavaModule {
     constants.put("systemVersion", Build.VERSION.RELEASE);
     constants.put("appVersion", appVersion);
     constants.put("buildNumber", buildNumber);
+    constants.put("isDisplayZoomed", isDisplayZoomed());
     constants.put("isTablet", deviceTypeResolver.isTablet());
     constants.put("isLowRamDevice", isLowRamDevice());
     constants.put("appName", appName);

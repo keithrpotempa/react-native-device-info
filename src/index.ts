@@ -393,7 +393,7 @@ export const isLowRamDevice = () =>
 export const isDisplayZoomed = () =>
   getSupportedPlatformInfoSync({
     defaultValue: false,
-    supportedPlatforms: ['ios'],
+    supportedPlatforms: ['android', 'ios'],
     memoKey: 'zoomed',
     getter: () => RNDeviceInfo.isDisplayZoomed,
   });
